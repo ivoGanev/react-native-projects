@@ -7,9 +7,19 @@ import { CATEGORIES } from "../data/dummy-data";
 import { ListItem } from '../components/categories/FlatListItem'
 
 const CategoriesScreen = props => {
+    const onPress = (item) => {
+        props.navigation.navigate({
+            routeName: 'CategoryMeals',
+            params: {categoryId: item.id}
+        })
+        console.log(item.id)
+    }
+
     return (
-        <View  styles= { Styles.screen }>
-            <FlatList data={CATEGORIES} renderItem={ ListItem } numColumns={2} />
+        <View styles={Styles.screen}>
+            <FlatList data={CATEGORIES} renderItem={({ item }) =>
+                <ListItem itemData={item} onPress={onPress.bind(this, item)} />}
+                numColumns={2} />
         </View>
     )
 }

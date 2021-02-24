@@ -1,10 +1,12 @@
 import React from 'react'
-import { View, Text, } from 'react-native'
+import { View, Text, TouchableHighlight, ProgressViewIOSComponent } from 'react-native'
 
-export const ListItem =itemData => {
+export const ListItem = props => {
     return (
-        <View>
-            <Text>{itemData.item.title}</Text>
-        </View>
+        <TouchableHighlight onPress={ props.onPress }>
+            <View>
+                <Text>{props.itemData.title}</Text>
+            </View>
+        </TouchableHighlight>
     )
 }
