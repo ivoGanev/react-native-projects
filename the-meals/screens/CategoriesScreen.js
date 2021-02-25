@@ -17,7 +17,7 @@ const CategoriesScreen = props => {
         <View styles={Styles.screen}>
             <FlatList data={CATEGORIES} renderItem={({ item }) =>
                 <ListItem itemData={item} onPress={onPress.bind(this, item)} />}
-                numColumns={2} />
+                numColumns={2}  />
         </View>
     )
 }
