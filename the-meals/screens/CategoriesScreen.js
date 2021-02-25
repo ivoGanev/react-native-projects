@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { View, Text, StyleSheet, FlatList } from 'react-native'
-import { Color } from '../constants/colors';
 import { Styles } from '../constants/styles'
 import { CATEGORIES } from "../data/dummy-data";
 import { ListItem } from '../components/categories/FlatListItem'
@@ -12,7 +11,6 @@ const CategoriesScreen = props => {
             routeName: 'CategoryMeals',
             params: {categoryId: item.id}
         })
-        console.log(item.id)
     }
 
     return (
@@ -26,10 +24,6 @@ const CategoriesScreen = props => {
 
 CategoriesScreen.navigationOptions = {
     headerTitle: 'Meal Categories',
-    headerTintColor: '#fff',
-    headerStyle: {
-        backgroundColor: Color.background
-    },
 }
 
 const styles = StyleSheet.create({
