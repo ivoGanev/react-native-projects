@@ -14,8 +14,8 @@ export const MealItem = props => {
                     </View>
                     <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
                         <Text >{props.item.duration}</Text>
-                        <Text >{props.item.complexity}</Text>
-                        <Text >{props.item.affordability}</Text>
+                        <Text >{props.item.complexity.toUpperCase()}</Text>
+                        <Text >{props.item.affordability.toUpperCase()}</Text>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -25,7 +25,7 @@ export const MealItem = props => {
 
 const styles = StyleSheet.create({
     mealItem: {
-        backgroundColor: '#ccc',
+        backgroundColor: Color.background,
         alignSelf: 'center',
         height: 200,
         width: '90%',
