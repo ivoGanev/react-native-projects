@@ -11,10 +11,17 @@ const CategoriesMealsScreen = props => {
         meal => meal.categoryIds.indexOf(id) >= 0
     )
 
+    const onPress = (item) => {
+        props.navigation.navigate({
+            routeName: 'MealsDetails',
+            params: {mealId: item.id}
+        })
+    }
+
     return (
         <View>
             <FlatList data={meals} renderItem={(itemData) => (
-                <MealItem item={itemData.item} onSelectMeal={()=>{}} />
+                <MealItem item={itemData.item} onSelectMeal={onPress.bind(this, itemData.item)} />
             )} style={{width: '100%'}}/>
         </View>
     )
