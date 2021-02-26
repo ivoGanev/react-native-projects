@@ -4,6 +4,8 @@ import { View, Text, StyleSheet, FlatList } from 'react-native'
 import { Styles } from '../constants/styles'
 import { CATEGORIES } from "../data/dummy-data";
 import { ListItem } from '../components/categories/FlatListItem'
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
+import CustomHeaderButton from '../components/HeaderButton'
 
 const CategoriesScreen = props => {
     const onPress = (item) => {
@@ -22,8 +24,18 @@ const CategoriesScreen = props => {
     )
 }
 
-CategoriesScreen.navigationOptions = {
-    headerTitle: 'Meal Categories',
+CategoriesScreen.navigationOptions = (navData)=> {
+    return {
+        headerTitle: 'Meal Categories',
+        headerLeft: () => (
+            <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+                <Item
+                    title='Drawer'
+                    iconName='ios-menu'
+                    onPress={() => { navData.navigation.toggleDrawer() }} />
+            </HeaderButtons>
+        )
+    }
 }
 
 const styles = StyleSheet.create({

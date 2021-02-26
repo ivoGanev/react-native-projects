@@ -18,4 +18,9 @@ const styles = StyleSheet.create({
     }
 })
 
+FiltersScreen.navigationOptions = {
+    headerTitle: "Filters"
+}
+
+
 export default FiltersScreen

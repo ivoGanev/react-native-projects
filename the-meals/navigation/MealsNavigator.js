@@ -9,6 +9,7 @@ import CategoriesScreen from '../screens/CategoriesScreen'
 import CategoriesMealsScreen from '../screens/CategoryMealsScreen'
 import MealDetailsScreen from '../screens/MealDetailsScreen'
 import FavoritesScreen from '../screens/FavoritesScreen';
+import FiltersScreen from "../screens/FiltersScreen";
 import { Ionicons } from "@expo/vector-icons";
 import { Platform } from "react-native";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
@@ -17,6 +18,7 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 import { LogBox } from 'react-native';
 
 LogBox.ignoreLogs(['Your project is accessing the following APIs'])
+
 
 const defaultNavOptions = { 
    headerTintColor: '#ffffff',
@@ -40,6 +42,7 @@ const FavoritesNavigator = createStackNavigator({
    defaultNavigationOptions: defaultNavOptions
 })
 
+
 const tabScreenConfig = {
    Meals: {
       screen: MealsNavigator, navigationOptions: {
@@ -56,6 +59,9 @@ const tabScreenConfig = {
    },
 }
 
+const FiltersNavigator = createStackNavigator({
+   Filters: FiltersScreen
+}, {    defaultNavigationOptions: defaultNavOptions})
 
 const MealsTabFavNavigator = Platform.OS === 'android' ? createMaterialBottomTabNavigator(tabScreenConfig, {
    activeTintColor: Color.background,
@@ -69,6 +75,9 @@ const MealsTabFavNavigator = Platform.OS === 'android' ? createMaterialBottomTab
          }
       })
 
+const MainNavigator = createDrawerNavigator({
+   Favorites: MealsTabFavNavigator,
+   Filters: FiltersNavigator,
+})
 
-
-export default createAppContainer(MealsTabFavNavigator)
+export default createAppContainer(MainNavigator)
