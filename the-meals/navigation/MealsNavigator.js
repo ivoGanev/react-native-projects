@@ -12,22 +12,32 @@ import FavoritesScreen from '../screens/FavoritesScreen';
 import { Ionicons } from "@expo/vector-icons";
 import { Platform } from "react-native";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
+import { createDrawerNavigator } from "react-navigation-drawer";
+
 import { LogBox } from 'react-native';
 
 LogBox.ignoreLogs(['Your project is accessing the following APIs'])
+
+const defaultNavOptions = { 
+   headerTintColor: '#ffffff',
+   headerStyle: {
+      backgroundColor: Color.background
+   },
+}
 
 const MealsNavigator = createStackNavigator({
    Categories: CategoriesScreen,
    CategoryMeals: CategoriesMealsScreen,
    MealsDetails: MealDetailsScreen,
 }, {
-   defaultNavigationOptions: {
-      headerTintColor: '#ffffff',
-      headerStyle: {
-         backgroundColor: Color.background
+   defaultNavigationOptions: defaultNavOptions
+})
 
-      },
-   }
+const FavoritesNavigator = createStackNavigator({
+   Favorites: FavoritesScreen,
+   MealDetails: MealDetailsScreen
+}, {
+   defaultNavigationOptions: defaultNavOptions
 })
 
 const tabScreenConfig = {
@@ -36,11 +46,9 @@ const tabScreenConfig = {
          tabBarIcon: (tabInfo) => { return <Ionicons name='ios-restaurant' size={25} color={Color.tabIcons} /> },
          tabBarColor: Color.imageDetails
       },
-      
-   
    },
    Favorites: {
-      screen: FavoritesScreen, navigationOptions: {
+      screen: FavoritesNavigator, navigationOptions: {
          tabBarIcon: (tabInfo) => { return <Ionicons name='ios-star' size={25} color={Color.tabIcons} /> },
          tabBarColor: Color.background
       },

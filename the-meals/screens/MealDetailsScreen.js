@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 import { MEALS } from '../data/dummy-data'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import CustomHeaderButton from '../components/HeaderButton'
@@ -8,10 +8,11 @@ import CustomHeaderButton from '../components/HeaderButton'
 
 const MealDetailsScreen = props => {
     const mealId = props.navigation.getParam('mealId')
-    const meal = MEALS.find(meal => meal.id === mealId)
+    const meal = MEALS.filter(meal => meal.id === mealId)
+
     return (
         <View>
-            <Text>Meal Details Screen</Text>
+            <Text>Hello</Text>
         </View>
     )
 }

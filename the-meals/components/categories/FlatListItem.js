@@ -6,7 +6,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Platform, TouchableNativeFeed
 export const ListItem = props => {
     if (Platform.OS === 'android' && Platform.Version >= 21) {
         return (
-            <View  style={styles.gridItem}>
+            <View style={styles.gridItem}>
                 <TouchableNativeFeedback
                     onPress={
                         props.onPress

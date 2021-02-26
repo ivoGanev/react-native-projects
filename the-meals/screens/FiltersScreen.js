@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 
 const FiltersScreen = props => {
     return (
         <View>
-            <Text>Filters Screen</Text>
+           <Text>Hello</Text>
         </View>
     )
 }
