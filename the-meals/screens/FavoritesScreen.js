@@ -5,8 +5,6 @@ import   { MealItem }  from "../components/categories/MealItem";
 import {  MEALS } from '../data/dummy-data'
 
 const FavoritesScreen = props => {
-   // const mealId = props.navigation.getParam('mealId')
-    //const meal = MEALS.filter(meal => meal.id === mealId)
     const mealId = 'm1'
     const meal = MEALS.filter(meal => meal.id === mealId)
 
