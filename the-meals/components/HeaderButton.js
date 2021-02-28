@@ -4,7 +4,6 @@ import { Ionicons } from '@expo/vector-icons'
 import { Color } from '../constants/colors'
 
 const CustomHeaderButton = props => {
-    console.log(props)
     return <HeaderButton
         {...props}
         IconComponent={Ionicons}
